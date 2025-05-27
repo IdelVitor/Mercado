@@ -18,13 +18,4 @@ public class ClienteDTO {
     private String cpf;
     private String endereco;
 
-    public ClienteDTO(com.mercado.domain.Cliente cliente) {
-        this.id = cliente.getId();
-        this.nome = cliente.getNome();
-        this.email = cliente.getEmail();
-        this.telefone = cliente.getTelefone();
-        this.cpf = cliente.getCpf();
-        this.endereco = cliente.getEndereco();
-    }
-
 }
