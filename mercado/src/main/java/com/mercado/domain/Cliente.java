@@ -1,15 +1,13 @@
 package com.mercado.domain;
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
 @NoArgsConstructor
+@Entity
 public class Cliente {
 
     @Id
@@ -20,6 +18,8 @@ public class Cliente {
     private String email;
     private String telefone;
     private String cpf;
-    private String endereco;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
 }

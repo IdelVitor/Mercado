@@ -1,21 +1,18 @@
 package com.mercado.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
 @NoArgsConstructor
+@Entity
 public class Pedido {
 
     @Id
@@ -23,7 +20,7 @@ public class Pedido {
     private Long id;
 
     private String numero;
-    private LocalDate dataPedido;
+    private LocalDateTime dataPedido;
     private BigDecimal valorTotal;
     private String status;
 

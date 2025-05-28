@@ -1,16 +1,13 @@
 package com.mercado.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
 @NoArgsConstructor
+@Entity
 public class Usuario {
 
     @Id
@@ -20,6 +17,8 @@ public class Usuario {
     private String username;
     private String senha;
     private String email;
+    private String telefone;
+    private String nome;
     private String role;
     private boolean ativo;
 }

@@ -1,19 +1,16 @@
 package com.mercado.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
 @NoArgsConstructor
+@Entity
 public class Pagamento {
 
     @Id
@@ -22,7 +19,7 @@ public class Pagamento {
 
     private String tipo;
     private BigDecimal valor;
-    private LocalDate dataPagamento;
+    private LocalDateTime dataPagamento;
     private String status;
 
     @OneToOne

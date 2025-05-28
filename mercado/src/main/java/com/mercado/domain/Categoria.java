@@ -1,18 +1,14 @@
 package com.mercado.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.time.LocalDate;
+import lombok.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Entity
 @NoArgsConstructor
+@Entity
 public class Categoria {
 
     @Id
@@ -22,6 +18,18 @@ public class Categoria {
     private String nome;
     private String descricao;
     private boolean ativo;
-    private LocalDate dataCriacao;
-    private LocalDate dataAtualizacao;
+
+    private LocalDateTime dataCriacao;
+    private LocalDateTime dataAtualizacao;
+
+    @PrePersist
+    protected void onCreate() {
+        dataCriacao = LocalDateTime.now();
+        dataAtualizacao = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        dataAtualizacao = LocalDateTime.now();
+    }
 }

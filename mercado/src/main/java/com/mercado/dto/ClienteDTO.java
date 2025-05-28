@@ -1,9 +1,8 @@
 package com.mercado.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -12,19 +11,17 @@ import lombok.Setter;
 public class ClienteDTO {
 
     private Long id;
+
+    @NotBlank(message = "Nome é obrigatório")
     private String nome;
+
+    @Email(message = "Email inválido")
     private String email;
+
+    @Size(max = 20)
     private String telefone;
-    private String cpf;
-    private String endereco;
 
-    public ClienteDTO(com.mercado.domain.Cliente cliente) {
-        this.id = cliente.getId();
-        this.nome = cliente.getNome();
-        this.email = cliente.getEmail();
-        this.telefone = cliente.getTelefone();
-        this.cpf = cliente.getCpf();
-        this.endereco = cliente.getEndereco();
-    }
-
+    @NotNull(message = "Endereço é obrigatório")
+    @Valid
+    private EnderecoDTO endereco;
 }
